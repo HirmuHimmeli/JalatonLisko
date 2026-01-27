@@ -1,9 +1,10 @@
-﻿# The script of the game goes in this file.
+# The script of the game goes in this file.
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
 define e = Character("Eileen")
+define r = Character("Rene")
 
 
 # The game starts here.
@@ -20,7 +21,7 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy.png
+    show garmes happy
 
     # These display lines of dialogue.
 
@@ -28,6 +29,9 @@ label start:
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
+    r "Älä sinä siinä mulle rupee pätee senkin placeholder assetti."
+
+    r "Sä et ees oo käärme."
     # This ends the game.
 
     return
