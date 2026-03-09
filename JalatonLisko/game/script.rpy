@@ -15,7 +15,7 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene bg graveyard_2
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
@@ -32,6 +32,7 @@ label start:
     r "Älä sinä siinä mulle rupee pätee senkin placeholder assetti."
 
     r "Sä et ees oo käärme."
-    # This ends the game.
+    hide garmes
+    r "I wonder where those graves could be?"
 
     return
