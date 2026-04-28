@@ -6,8 +6,6 @@
 # The game starts here.
 
 label start:
-    define e = Character("Eileen")
-    define r = Character("Rene")
     scene bg graveyard_2
     show garmes happy
     define r = Character("Rene", who_color="#357897ff")
