@@ -1619,3 +1619,31 @@ style slider_vbox:
 style slider_slider:
     variant "small"
     xsize 900
+
+
+### GAME SCREENS ###
+####################
+
+screen graveyard_gates():
+    add "graveyard_gates"
+    modal True
+
+    imagebutton auto "mapstand_%s":
+        focus_mask True
+        action Jump ("intro_map")
+
+    imagebutton auto "vaivaisukko_%s":
+        focus_mask True
+        action Jump ("vaivaisukko")
+
+screen graveyard_section1():
+    add "section1"
+    modal True
+
+    imagebutton auto "graveyard_1_grave1_%s":
+        focus_mask True
+        action Jump ("placeholder_grave")
+
+    imagebutton auto "hautayksi_%s":
+        focus_mask True
+        action Jump ("TapaniKaarina_grave")
