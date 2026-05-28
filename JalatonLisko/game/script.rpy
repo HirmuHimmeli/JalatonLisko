@@ -6,6 +6,13 @@
 define e = Character("Eileen")
 define r = Character("Rene")
 
+#Default Values
+
+default map_on = False
+default gave_coin = False
+default p_emp = 0
+default p_rep = 0
+
 
 # The game starts here.
 
@@ -98,8 +105,10 @@ label intro_map:
     "An old, weathered map of the graveyard."
     "I'll take a picture of it. Don't need to come back here constantly to check where we're going."
     #Phone camera sound .mp3 :D
+    $ map_on = True
     v "Ah, wonders of modern technology."
     v "Shall we go?"
+   
     jump TapaniKaarina_grave_intro
 
 label TapaniKaarina_grave_intro:
@@ -157,17 +166,44 @@ label TapaniKaarina_grave_intro:
     jump graveyard_1
 
 label graveyard_1:
-    scene graveyard_1
+    scene section1
     call screen graveyard_section1
 
     label placeholder_grave:
-    show section1
     "This is a placeholder."
+    #Jos halutaan paljon feikkihautoja eikä haluta koodata jokaista hautaa erikseen
+    #Niin pitää tehdä joku player location funktio. Mut honestly whos gonna check
     jump graveyard_1
 
     label TapaniKaarina_grave:
-    show section1
     "Not yet."
     jump graveyard_1
 
     
+label graveyard_2:
+    scene section2
+    "This is a graveyard 2"
+    "There are some placeholders to click."
+    call screen graveyard_section2
+
+label graveyard_3:
+    "This is a graveyard 3"
+    return
+label graveyard_4:
+    "This is a graveyard 4"
+    return
+label graveyard_5:
+    "This is a graveyard 5"
+    return
+label graveyard_7:
+    "This is a graveyard 7"
+    return
+label graveyard_8:
+    "This is a graveyard 8"
+    return
+label graveyard_9:
+    "This is a graveyard 9"
+    return
+label graveyard_10:
+    "This is a graveyard 10"
+    return
