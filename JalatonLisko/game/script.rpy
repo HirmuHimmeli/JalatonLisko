@@ -6,6 +6,20 @@
 define e = Character("Eileen")
 define r = Character("Rene")
 
+##Tracking values
+
+#Default Story values + tracker values
+default p_emp = 0
+default p_rep = 0
+default first_grave = False
+
+
+#Grave found values
+default Riitta_found = False
+default Maija_found = False
+
+default visited_ukko = False
+default gave_coin = False
 
 # The game starts here.
 
@@ -67,31 +81,68 @@ label graveyard_gates:
     call screen graveyard_gates
 
 label vaivaisukko:
-    "An odd, old-looking wooden statue stands by the entrance, clutching a crutch in one hand, the other outstretched, begging. There's a small slit in its chest, big enough for a coin."
-    "A plastic-covered paper on top of it says:"
-    "The funds gained through the pauper statue will be used for charity work in the parish. Thank you for your donation."
-    v "Well? Are you going to give alms to the poor, for the weary and the weak?"
-    menu:
-        "Give a coin to the pauper statue?"
+    if visited_ukko == False:
+        "An odd, old-looking wooden statue stands by the entrance, clutching a crutch in one hand, the other outstretched, begging. There's a small slit in its chest, big enough for a coin."
+        "A plastic-covered paper on top of it says:"
+        "The funds gained through the pauper statue will be used for charity work in the parish. Thank you for your donation."
+        v "Well? Are you going to give alms to the poor, for the weary and the weak?"
+        menu:
+            "Give a coin to the pauper statue?"
 
-        "Give.":
-            $ gave_coin = True
-            "I dig a 2 euro coin from the bottom of my pocket. It slides into the statue with a hollow tink."
-            "I hear Valac chuckle derisively."
-            v "How incredibly noble of you."
-            v "Did that make you feel better about yourself?"
-            "..."
-        "Don't give.":
-            $ gave_coin = False
-            "I stuff my hands into my pockets, and leave the statue to beg in vain."
-            "There's a smug grin on Valac's face."
-            v "My, how selfish of you."
-            v "Then again, why help without gaining anything in return?"
-            v "Well… Assuming you'll never need the help you didn't give."
-            "..."
+            "Give.":
+                $ gave_coin = True
+                "I dig a 2 euro coin from the bottom of my pocket. It slides into the statue with a hollow tink."
+                "I hear Valac chuckle derisively."
+                v "How incredibly noble of you."
+                v "Did that make you feel better about yourself?"
+                "..."
+            "Don't give.":
+                "I stuff my hands into my pockets, and leave the statue to beg in vain."
+                "There's a smug grin on Valac's face."
+                v "My, how selfish of you."
+                v "Then again, why help without gaining anything in return?"
+                v "Well… Assuming you'll never need the help you didn't give."
+                "..."
 
-    "If this is how he treats his relatives, no wonder he doesn't know if any of them are alive. Besides me."
-   
+        "If this is how he treats his relatives, no wonder he doesn't know if any of them are alive. Besides me."
+        $ visited_ukko = True
+    elif gave_coin == False:
+        v "Having second thoughts, are we?"
+        r "..."
+
+        menu:
+            "Give coin to the pauper statue?"
+
+            "Give.":
+                $ gave_coin = True
+                "I manage to dig a coin from the bottom of my pocket. It slides into the statue with a hollow tink."
+                "... I don't feel any different."
+                v "Well, how noble of you."
+                v "Needed a bit to think on it, did you?"
+                r "Why don't {i}you{/i} give something then?"
+                v "Why should I?"
+                "..."
+                "Despite his words, I think I did a good thing."
+            "Don't give.":
+                "..."
+                "Valac scoffs."
+                v "What a waste."
+                "He starts to walk off, like I'd offended him somehow."
+                "..."
+                "Why do I feel like he's disappointed in me?"
+    else:
+        "I dig around in my pockets for another coin, but sadly don't find any."
+        r "..."
+        r "Why don't you give a coin?"
+        v "Why should I?"
+        r "Well, I did. Because I wanted to."
+        r "It's voluntary, of course. You don't have to help."
+        v "Eugh."
+        "To my surprise, he rummages around his coat pockets and digs out a coin."
+        "It looks ancient, it's not even a euro. Maybe a markka?"
+        "He slides it in and it hits the other coins with a tink."
+        v "Well? Are we going?"
+
     jump graveyard_gates
 
 label intro_map:

@@ -8,7 +8,7 @@ label graveyard_1:
     label placeholder_grave:
     "This is a placeholder."
     #Jos halutaan paljon feikkihautoja eikä haluta koodata jokaista hautaa erikseen
-    #Niin pitää tehdä joku player location funktio. Mut honestly whos gonna check
+    #Niin pitää tehdä joku player location funktio. Mut honestly whos gonna check might as well write individual labels
     jump graveyard_1
 
     label TapaniKaarina_grave:
