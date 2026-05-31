@@ -137,7 +137,7 @@ label TapaniKaarina_grave_intro:
     v "Patience, patience! I promise I'll tell you, after we find my other descendants. Then, we'll return here."
     v "It could be a fruitful bonding moment for us!"
     "I can't force a lie out of my mouth, to say that I'm not curious."
-    "I've lived with my aunt for most of my life. I don't even remember my parents."
+    "I've lived with my aunt my entire life. I don't even remember my parents."
     "And auntie didn't know about dad's side of the family. They never contacted me."
     "So Valac could be right — they might all be here."
     r "But, wait. If you were — what, asleep? — for a couple hundred years or so, doesn't that mean you don't even know those people? How would you tell me anything about them?"

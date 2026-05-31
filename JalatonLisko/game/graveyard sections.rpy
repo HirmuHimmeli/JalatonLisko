@@ -23,8 +23,13 @@ label graveyard_2:
     call screen graveyard_section2
 
 label graveyard_3:
-    "This is a graveyard 3"
-    return
+    scene section3
+    "This is section 3."
+    "There are some more placeholders to click."
+    call screen graveyard_section3
+
+
+
 label graveyard_4:
     "This is a graveyard 4"
     return
