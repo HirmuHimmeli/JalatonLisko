@@ -17,6 +17,8 @@ default first_grave = False
 #Grave found values
 default Riitta_found = False
 default Maija_found = False
+default Signe_found = False
+default Toivo_found = False
 
 default visited_ukko = False
 default gave_coin = False
