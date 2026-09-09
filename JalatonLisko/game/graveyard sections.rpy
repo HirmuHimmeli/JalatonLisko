@@ -21,6 +21,7 @@ label graveyard_1:
 
     label TapaniKaarina_grave:
     "Not yet."
+    "I need to find the rest of them first."
     jump graveyard_1
 
     label Maija_Petri_grave:
@@ -113,7 +114,58 @@ label graveyard_1:
         else:
             r "Found her already."
         jump graveyard_1
-    
+
+    label valac_sec1:
+        if valac_convo ==1:
+            r "..."
+            v "What? Spit it out."
+            r "This is just…"
+            r "Well, it's a little weird, isn't it? Someone just knocks on your front door and they happen to be your great-great-something-grandfather."
+            r "And a fucking archdemon of all things."
+            v "Language, young man."
+            r "Sorry…"
+            r "But, still. It's uh. A change of pace, to say the least."
+            r "Wasn't expecting my Wednesday to look like this."
+            r "Or… you, to be honest."
+            v "What's that supposed to mean?"
+            r "When I opened the door I wasn't expecting scales and four horns and weird eyes —"
+            v "Don't insult me."
+            r "I'm not, I —"
+            "I stop talking before I manage to stuff my foot any further up my mouth."
+            r "Just… wasn't expecting you to be so…"
+            v "Extraordinary? One-of-a-kind? Exotic? Unique?"
+            r "Sure, let's go with that."
+            $ valac_convo +=1
+
+        elif valac_convo ==2:
+            r "You know, I've wondered. Why I look like this, and why no one else does."
+            v "You never had any demons in your class? And some corvid demi-humans have darker sclera."
+            r "But no one tends to have both. Or have them passed down, when neither mom nor dad were either."
+            v "Hmm."
+            r "Do you know why that is?"
+            v "Not really, no. We're special in that way, I suppose."
+            r "'We', meaning us, or —"
+            v "Me and my siblings. We're an odd bunch, I have to admit."
+            v "..."
+            v "I wonder how many of them are still around."
+            r "I thought you guys were immortal?"
+            v "Oh, and that's why most of us have seemingly vanished from the face of the Earth?"
+            v "But… yes. Death typically isn't the end for us."
+            r "That's… certainly a choice of words. What the hell does that mean?"
+            v "All in due time, boy. I'd hate to lose all sense of mystery so quickly."
+            $ valac_convo +=1
+
+
+        else:
+            v "..."
+            v "What? Don't just stand there, get to work boy."
+        
+        jump graveyard_1
+
+        
+
+
+
 label graveyard_2:
     if Riitta_found  == True:
         r "Well that's it for this one."
@@ -236,7 +288,6 @@ label graveyard_2:
 label graveyard_3:
     if Signe_found and Toivo_found == True:
         r "I think that's all for section 3."
-        v "Let's move on."
         jump graveyard_4
 
     else:
@@ -375,13 +426,20 @@ label graveyard_3:
             r "Or, maybe he just left his photography genius back in the afterlife."
             v "..."
             v "Hmphm."
-            r "...? What's so funny?"
-            r "Oh, it's nothing."
-            r "... This family of mine seems to have a bad tendency to die in embarrasing but thematically fitting ways."
-            r "That's..."
+            r "...Hm? What's so funny?"
+            v "Oh, it's nothing."
+            v "... This family of mine seems to have a bad tendency to die in embarrasingly young."
+            r "That's—"
 
             #Onko pointless menu og scriptissä? Keksitään jotain mielenkiintoisempaa sanottavaa
             v "Let's move on, shall we?"
+            if Signe_found == False:
+                r "He had a twin, didn't he? The mother of Riitta and Maija?"
+                v "If you really want to find her, go ahead."
+            
+            else:
+                pass
+
             $ Toivo_found = True
         else:
             "Found him already. I wonder where his twin is."
@@ -415,11 +473,26 @@ label graveyard_3:
         "This is a placeholder."
         jump graveyard_3
 
+    label valac_sec3:
+  
 
 
 label graveyard_4:
+# if Signe_found and Toivo_found == False:
+    #    r "I think that's all for section 4."
+    #    jump graveyard_5
+
+# else:
+#     pass
+    
+    scene section4
+    "There are some more placeholders to click."
     "This is a graveyard 4"
-    return
+    call screen graveyard_section4
+
+
+
+
 label graveyard_5:
     "This is a graveyard 5"
     return

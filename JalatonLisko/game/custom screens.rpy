@@ -26,6 +26,10 @@ screen graveyard_section1():
     imagebutton auto "hautayksi_%s":
         focus_mask True
         action Jump ("TapaniKaarina_grave")
+    
+    imagebutton auto "valac_sec1_%s":
+        focus_mask True
+        action Jump ("valac_sec1")
 
 screen graveyard_section2():
     tag gravmenu
@@ -86,3 +90,38 @@ screen graveyard_section3():
     imagebutton auto "graveyard_3_grave9_%s":
         focus_mask True
         action Jump ("ph39")
+    
+    imagebutton auto "valac_sec3_%s":
+        focus_mask True
+        action Jump ("valac_sec3")
+
+
+screen graveyard_section4():
+    tag gravmenu
+    add "section4"
+    modal True
+
+   
+    imagebutton auto "graveyard_4_grave1_%s":
+        focus_mask True
+        action Jump ("Signe_grave")
+
+    imagebutton auto "graveyard_4_grave2_%s":
+        focus_mask True
+        action Jump ("ph32")
+
+    imagebutton auto "graveyard_4_grave3_%s":
+        focus_mask True
+        action Jump ("ph33")
+
+    imagebutton auto "graveyard_4_grave4_%s":
+        focus_mask True
+        action Jump ("ph34")
+
+    imagebutton auto "graveyard_4_grave5_%s":
+        focus_mask True
+        action Jump ("ph35")
+
+    imagebutton auto "valac_sec4_%s":
+        focus_mask True
+        action Jump ("ph36")

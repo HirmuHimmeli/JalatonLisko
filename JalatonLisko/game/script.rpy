@@ -23,6 +23,8 @@ default Toivo_found = False
 default visited_ukko = False
 default gave_coin = False
 
+#Tracks Valac's optional dialogue and crosses out previous conversations because the number has grown
+default valac_convo = 1
 # The game starts here.
 
 label start:
@@ -208,6 +210,7 @@ label TapaniKaarina_grave_intro:
     v "If you expect an old, old man like myself to toil himself to death looking for his lost family, then your aunt raised you quite poorly."
     "..."
     "An old receipt that'd been left in my pocket is crumpled into a tiny, sharp shard of paper in my hand."
+    scene section1
     r "Well… I best start looking."
     jump graveyard_1
 
