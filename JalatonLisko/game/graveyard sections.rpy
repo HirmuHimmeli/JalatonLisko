@@ -18,10 +18,10 @@ label graveyard_1:
     
 label graveyard_2:
     scene section2
+    call screen graveyard_section2
     "This is a graveyard 2"
     "There are some placeholders to click."
-    call screen graveyard_section2
-
+    
 label graveyard_3:
     scene section3
     "This is section 3."
