@@ -28,6 +28,8 @@ default gave_coin = False
 
 #Tracks Valac's optional dialogue and crosses out previous conversations because the number has grown
 default valac_convo = 1
+#Tracks player position with valac convos
+default player_pos = 1
 # The game starts here.
 
 label start:

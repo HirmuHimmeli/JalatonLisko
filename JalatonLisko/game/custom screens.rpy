@@ -29,7 +29,7 @@ screen graveyard_section1():
     
     imagebutton auto "valac_sec1_%s":
         focus_mask True
-        action Jump ("valac_sec1")
+        action [SetVariable("player_pos", 1), Jump ("valac_convo")]
 
 screen graveyard_section2():
     tag gravmenu
@@ -49,8 +49,8 @@ screen graveyard_section2():
         action Jump ("placeholder_grave_3")
 
     imagebutton auto "valac_sec2_%s":
-        focus_mask Truea
-        action Jump ("valac_sec2")
+        focus_mask True
+        action [SetVariable("player_pos", 2), Jump ("valac_convo")]
 
 
 screen graveyard_section3():
@@ -97,7 +97,7 @@ screen graveyard_section3():
     
     imagebutton auto "valac_sec3_%s":
         focus_mask True
-        action Jump ("valac_sec3")
+        action [SetVariable("player_pos", 3), Jump ("valac_convo")]
 
 
 screen graveyard_section4():
@@ -106,26 +106,26 @@ screen graveyard_section4():
     modal True
 
    
-    imagebutton auto "graveyard_4_grave1_%s":
+    imagebutton auto "graveyard_4_grave_1_%s":
         focus_mask True
-        action Jump ("Signe_grave")
+        action Jump ("Aarne_grave")
 
-    imagebutton auto "graveyard_4_grave2_%s":
+    imagebutton auto "graveyard_4_grave_2_%s":
         focus_mask True
-        action Jump ("ph32")
+        action Jump ("Signe_I_grave")
 
-    imagebutton auto "graveyard_4_grave3_%s":
+    imagebutton auto "graveyard_4_grave_3_%s":
         focus_mask True
-        action Jump ("ph33")
+        action Jump ("Lennart_grave")
 
-    imagebutton auto "graveyard_4_grave4_%s":
+    imagebutton auto "graveyard_4_grave_4_%s":
         focus_mask True
         action Jump ("ph34")
 
-    imagebutton auto "graveyard_4_grave5_%s":
+    imagebutton auto "graveyard_4_grave_5_%s":
         focus_mask True
         action Jump ("ph35")
 
     imagebutton auto "valac_sec4_%s":
         focus_mask True
-        action Jump ("valac_sec4")
+        action [SetVariable("player_pos", 4), Jump ("valac_convo")]

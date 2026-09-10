@@ -1,6 +1,105 @@
 ####This is for all the point and click sections###
 ###################################################
 
+label valac_convo:
+    if valac_convo == 1:
+        r "..."
+        v "What? Spit it out."
+        r "This is just…"
+        r "Well, it's a little weird, isn't it? Someone just knocks on your front door and they happen to be your great-great-something-grandfather."
+        r "And a fucking archdemon of all things."
+        v "Language, young man."
+        r "Sorry…"
+        r "But, still. It's uh. A change of pace, to say the least."
+        r "Wasn't expecting my Wednesday to look like this."
+        r "Or… you, to be honest."
+        v "What's that supposed to mean?"
+        r "When I opened the door I wasn't expecting scales and four horns and weird eyes —"
+        v "Don't insult me."
+        r "I'm not, I —"
+        r "Just… wasn't expecting you to be so…"
+        v "Extraordinary? One-of-a-kind? Exotic? Unique?"
+        r "Sure, let's go with that."
+        $ valac_convo +=1
+    elif valac_convo == 2:
+        r "You know, I've wondered. Why I look like this, and why no one else does."
+        v "You never had any demons in your class? And some corvid demi-humans have darker sclera."
+        r "But no one tends to have both. Or have them passed down, when neither mom nor dad were either."
+        v "Hmm."
+        r "Do you know why that is?"
+        v "Not really, no. We're special in that way, I suppose."
+        r "'We', meaning us, or —"
+        v "Me and my siblings. We're an odd bunch, I have to admit."
+        v "..."
+        v "I wonder how many of them are still around."
+        r "I thought you guys were immortal?"
+        v "Oh, and that's why most of us have seemingly vanished from the face of the Earth?"
+        v "But… yes. Death typically isn't the end for us."
+        r "That's… certainly a choice of words. What the hell does that mean?"
+        v "All in due time, boy. I'd hate to lose all sense of mystery so quickly."
+        $ valac_convo +=1
+    elif valac_convo == 3:
+        r "So… You're an archdemon."
+        v "I thought that was already established."
+        r "Well, yeah. But it's still difficult to believe. It's like being told your ancestor was a dragon, or something."
+        v "You'd know if your family had a dragon in it somewhere. They're traits are quite noticeable. Be glad yours are only so minor."
+        r "Doesn't make them any less out of the ordinary."
+        r "Wait, you mean there ARE people related to dragons?!"
+        $ valac_convo += 1
+    elif valac_convo == 4:
+        r "Hey, so, how can you turn into a snake?"
+        v "I thought me being an archdemon was a needlessly well-established fact."
+        r "So you can just do it? On command, by nature?"
+        v "Magic comes to me as comfortably as breathing, so yes, by nature."
+        r "..."
+        r "Where does your cane go when you become a snake?"
+        #Valac uncomfortable smile
+        v "It transforms with me."
+        r "... How? Like, how your clothes do?"
+        v "No. This cane was my tail at one point in time."
+        v "I made use of it after it was forcibly severed without my consent."
+        r "..."
+        r "Okay. Right"
+        r "So now it's your, what's it called… white cane?"
+        v "...?"
+        r "Like, you use it to get around obstacles and stuff, find your way around if you can't see."
+        v "Does this look like some silly plastic pole? Those are pointless. I can walk perfectly fine even without it."
+        "..."
+        "I've seen him tapping it at the edges of the walkways and stairs."
+        $ valac_convo += 1
+    elif valac_convo == 5:
+        "Lol fifth convo"
+        $ valac_convo += 1
+    elif valac_convo <= 6:
+        r "Tää on keskustelu kuus."
+        v "Siisti juttu make."
+        $ valac_convo += 1
+    elif valac_convo <= 7:
+        "Ahyuk, tää on seittemäs keskustelu."
+        $ valac_convo += 1
+    else:
+        r "I can't think of anything to say to him."
+#Checks where player interacted with valac and puts them back where they were, hopefully
+    if player_pos  ==1:
+        jump graveyard_1
+
+    elif player_pos ==2:
+        jump graveyard_2
+
+    elif player_pos ==3:
+        jump graveyard_3
+
+    elif player_pos ==4:
+        jump graveyard_4
+
+    else:
+        return
+
+
+
+
+
+        
 label graveyard_1:
     if Maija_found == True:
         r "I think that's all my relatives in this section."
@@ -115,52 +214,7 @@ label graveyard_1:
             r "Found her already."
         jump graveyard_1
 
-    label valac_sec1:
-        if valac_convo ==1:
-            r "..."
-            v "What? Spit it out."
-            r "This is just…"
-            r "Well, it's a little weird, isn't it? Someone just knocks on your front door and they happen to be your great-great-something-grandfather."
-            r "And a fucking archdemon of all things."
-            v "Language, young man."
-            r "Sorry…"
-            r "But, still. It's uh. A change of pace, to say the least."
-            r "Wasn't expecting my Wednesday to look like this."
-            r "Or… you, to be honest."
-            v "What's that supposed to mean?"
-            r "When I opened the door I wasn't expecting scales and four horns and weird eyes —"
-            v "Don't insult me."
-            r "I'm not, I —"
-            "I stop talking before I manage to stuff my foot any further up my mouth."
-            r "Just… wasn't expecting you to be so…"
-            v "Extraordinary? One-of-a-kind? Exotic? Unique?"
-            r "Sure, let's go with that."
-            $ valac_convo +=1
-
-        elif valac_convo ==2:
-            r "You know, I've wondered. Why I look like this, and why no one else does."
-            v "You never had any demons in your class? And some corvid demi-humans have darker sclera."
-            r "But no one tends to have both. Or have them passed down, when neither mom nor dad were either."
-            v "Hmm."
-            r "Do you know why that is?"
-            v "Not really, no. We're special in that way, I suppose."
-            r "'We', meaning us, or —"
-            v "Me and my siblings. We're an odd bunch, I have to admit."
-            v "..."
-            v "I wonder how many of them are still around."
-            r "I thought you guys were immortal?"
-            v "Oh, and that's why most of us have seemingly vanished from the face of the Earth?"
-            v "But… yes. Death typically isn't the end for us."
-            r "That's… certainly a choice of words. What the hell does that mean?"
-            v "All in due time, boy. I'd hate to lose all sense of mystery so quickly."
-            $ valac_convo +=1
-
-
-        else:
-            v "..."
-            v "What? Don't just stand there, get to work boy."
-        
-        jump graveyard_1
+   
 
         
 
@@ -282,48 +336,7 @@ label graveyard_2:
         "This is a placeholder."
         jump graveyard_2
     
-    label valac_sec2:
 
-        if valac_convo == 3:
-            r "So… You're an archdemon."
-            v "I thought that was already established."
-            r "Well, yeah. But it's still difficult to believe. It's like being told your ancestor was a dragon, or something."
-            v "You'd know if your family had a dragon in it somewhere. They're traits are quite noticeable. Be glad yours are only so minor."
-            r "Doesn't make them any less out of the ordinary."
-            r "Wait, you mean there ARE people related to dragons?!"
-            $ valac_convo += 1
-
-        elif valac_convo == 4:
-            r "Hey, so, how can you turn into a snake?"
-            v "I thought me being an archdemon was a needlessly well-established fact."
-            r "So you can just do it? On command, by nature?"
-            v "Magic comes to me as comfortably as breathing, so yes, by nature."
-            r "..."
-            r "Where does your cane go when you become a snake?"
-            #Valac uncomfortable smile
-            v "It transforms with me."
-            r "... How? Like, how your clothes do?"
-            v "No. This cane was my tail at one point in time."
-            v "I made use of it after it was forcibly severed without my consent."
-            r "..."
-            r "Okay. Right"
-            r "So now it's your, what's it called… white cane?"
-            v "...?"
-            r "Like, you use it to get around obstacles and stuff, find your way around if you can't see."
-            v "Does this look like some silly plastic pole? Those are pointless. I can walk perfectly fine even without it."
-            "..."
-            "I've seen him tapping it at the edges of the walkways and stairs."
-            $ valac_convo += 1
-
-        elif valac_convo ==5:
-            "Lol fifth convo"
-            $ valac_convo += 1
-        else:
-            "..."
-            r "..."
-            v "..."
-            v "... What?"
-            r "Sorry, it's nothing."
 
 
     
@@ -515,28 +528,16 @@ label graveyard_3:
         "This is a placeholder."
         jump graveyard_3
 
-    label valac_sec3:
 
-        if valac_convo == 6:
-            r "Tää on keskustelu kuus."
-            v "Siisti juttu make."
-            $ valac_convo += 1
-
-
-        elif valac_convo == 7:
-            "Ahyuk, tää on seittemäs keskustelu."
-            $ valac_convo += 1
-        else:
-            r "I can't think of anything to say to him."
 
   
 
 
 label graveyard_4:
-    if Signe_I_found and Aarne_found and Lennart_found == True:
+    #if Signe_I_found and Aarne_found and Lennart_found == True:
         #Initiate endgame branching
-    else:
-        pass
+    #else:
+        #pass
     
     scene section4
     "There are some more placeholders to click."
@@ -623,6 +624,7 @@ label graveyard_4:
         v "Some did."
         r "And his brother — Lennart? — didn't?"
         v "If you're keen to find him, despite knowing what happened to him, go ahead."
+        $ Aarne_found = True
         jump graveyard_4
 
     label Signe_I_grave:
@@ -682,44 +684,44 @@ label graveyard_4:
             r "Were they sisters? Why did they have the same first name?"
         v "Common practice. If one child died very young, the next one would be given the same name."
 
-            menu:
-                "That's... kind of sweet?":
-                    r "I... don't really know if I'd do that."
-                    r "But I guess times were different."
-                    v "Indeed they were."
-                    r "Maybe it was like... a way to rememeber them. To keep a part of them with them."
-                    r "My cousin was named after his grandfather..."
-                    r "So I guess it's kind of like that."
-                    v "That's one way to look at it."
-                    v "Or perhaps it was just easier, not having to come up with a new name. And less things to grieve if you pretend the dead child doesn't exist."
-                    r "That's pretty bleak."
-                    r "I guess some people could have thought of it that way. But I guess it's a complex thing to parse."
-                        if Aarne_found or Lennart_found == True:
-                            r"..."
-                            v "..."
-                            v "What?"
-                            r "Nothing."
-                        else
-                            pass
+        menu:
+            "That's... kind of sweet?":
+                r "I... don't really know if I'd do that."
+                r "But I guess times were different."
+                v "Indeed they were."
+                r "Maybe it was like... a way to rememeber them. To keep a part of them with them."
+                r "My cousin was named after his grandfather..."
+                r "So I guess it's kind of like that."
+                v "That's one way to look at it."
+                v "Or perhaps it was just easier, not having to come up with a new name. And less things to grieve if you pretend the dead child doesn't exist."
+                r "That's pretty bleak."
+                r "I guess some people could have thought of it that way. But I guess it's a complex thing to parse."
+                if Aarne_found or Lennart_found == True:
+                    r"..."
+                    v "..."
+                    v "What?"
+                    r "Nothing."
+                else:
+                    pass
 
-                "That's really weird.":
-                    r "That's weird. What, did they run out of names?"
-                    v "Maybe it was a kindness. To give them a chance to live through their sibling."
-                    r "Still, kind of macabre. Name a child after their dead sibling, like they're a replacement."
-                    v "Isn't it a fairly common practice to name your child after their relatives, dead or alive?"
-                    r "Well, yeah, it's not rare. But it's weird when it's dead children."
-                    v "Why? Isn't that precisely why they would choose to do that? To honour someone?"
-                    v "Isn't it just telling of how much she was loved? That she was the namesake for her younger sister?"
-                    r "I... I just don't see it."
-                    v "I wouldn't expect anything more."
+            "That's really weird.":
+                r "That's weird. What, did they run out of names?"
+                v "Maybe it was a kindness. To give them a chance to live through their sibling."
+                r "Still, kind of macabre. Name a child after their dead sibling, like they're a replacement."
+                v "Isn't it a fairly common practice to name your child after their relatives, dead or alive?"
+                r "Well, yeah, it's not rare. But it's weird when it's dead children."
+                v "Why? Isn't that precisely why they would choose to do that? To honour someone?"
+                v "Isn't it just telling of how much she was loved? That she was the namesake for her younger sister?"
+                r "I... I just don't see it."
+                v "I wouldn't expect anything more."
                 
-            v "... Well. Let's continue."
-            r "Yeah. Sure..."
-            r "{size=-20}... I hope you and your mom are together now."
-            v "Did you say something?"
-            r "Nothing."
-            $ Signe_I_found = True
-            jump graveyard_4
+        v "... Well. Let's continue."
+        r "Yeah. Sure..."
+        r "{size=-20}... I hope you and your mom are together now."
+        v "Did you say something?"
+        r "Nothing."
+        $ Signe_I_found = True
+        jump graveyard_4
     
     
     
@@ -737,6 +739,63 @@ label graveyard_4:
             v "Well, I think we already know what happened to him."
             r "..."
             r "I want to hear his perspective."
+            v "Fine... If you insist."
+            
+            v "Lennart Valdemar Fennander. Born 7th of July, 1892."
+            v "The first born son of a distinguished spirit medium and her elusive husband."
+            v "Lennart didn't remember much of his father, and never looked for him once his mother spirited him and his brother away from him."
+            v "Despite his mother's ever worsening mental state, Lennart lover her with all his heart. Looked after her, and made sure she was as comfortable as she could."
+            v "And was understandably incensed after Aarne had her committed to an asylum, without telling him."
+            v "The once close borthers grew apart. The last threads that kept them talking to each other snapped as the civil war ignited."
+            v "Despite his wealthy background and established family line, LEnnart fought as part of the reds."
+            v "For his efforts he was rewarded a long, grueling stay in a prison camp where he languished for months. Underfed, starving, ravaged by disease."
+            v "He was one of the lucky ones."
+            v "As a final olive branch, after years apart, Aarne got his brother out."
+            v "Hoping to nurse his brother back to health, Aarne stayed quietly by his bedside."
+            v "But Lennart had suffered too greatly in the flifth and famine."
+            v "His health continued declining, and he died mere months later. Never able to marrt, have children, or reconcile with his brother."
+
+            r "..."
+            r "Man. I... What a terrible end."
+            v "Well, what can you do?"
+            v "Maybe he should have done the right thing and not have joined the weaker side, just beacuse of his ideals."
+
+            menu:
+                "It was a stupid thing to do":
+                    $ p_emp -= 1
+                    r "I mean, the whole civil war thing seemed pretty pointless. Were things realaly so bad it was worth killing your own countrymen for?"
+                    r "And... yeah. Weren't the reds all poor farmers and something? Why would Lennart join them?"
+                    r "Kind of a bad move to join the obvious losing side."
+                    v "I bet many historians wish it were that simple. Easy, clean answers that the investors and financers understnad, no ifs, buts or thoughs."
+                    v "People famously always do the logical thing, after all. It's all very easy to understand and clear-cut, isn't it?"
+                    v "\"The weak, evil bolsheviks\" versus \"the valiant, civilised whites\". Simple, isn't it?"
+                    r "I mean — That's kind of the gist I got —"
+                    v "From your history teacher who had to dumb it down so that you had even the slightest chance of retaining any information what so ever."
+                    v "I thought you got yourself an upper secondary education. History and social studies weren't your fortes, were they?"
+                    r "I—! Let's drop this."
+                    r "I knew this was going to be like kicking an ant's nest."
+                    v "If so, hos incredibly foolish of you to bring it up."
+                    r "I didn't, it was you who—!"
+                    r "Argh, forget it."
+                "That's easy to say after the fact.":
+                    $ p_emp += 1
+                    r "I mean, the whole civil war was a big tragedy all around."
+                    r "How would they have known that they'd lose?"
+                    v "How would the poor farmers and industrial workers have known that they wouldn't stand a chance against the well-trained middle- and upperclass aided by Imperial Germany?"
+                    r "Well, it wasn't that simple, was it? I thought the Soviets were backing the reds, so it wasn't like..."
+                    v "Like what?"
+                    r "Like... I don't know. It makes it messier."
+                    r "Lennart was quite well off, wasn't he?"
+                    r "And he still fought with them. Against his brother's side."
+                    r "..."
+                    v "People make foolish, idiotic choices all the time. Typically because they follow their hearts instead of their brains."
+                    r "But that's pretty human, isn't it?"
+                    r "Can't really fault the guy if he was doing what he thought was right, and got to suffer for it."
+                    v "He most likely ended a life or two during that war."
+                    r "..."
+                    r "... Feels weird to shame someone from a hundred years ago because history happened to them."
+                    v "Hmm. A fun way to put it."
+            $ Lennart_found = True
         jump graveyard_4
     
     label valac_sec4:
