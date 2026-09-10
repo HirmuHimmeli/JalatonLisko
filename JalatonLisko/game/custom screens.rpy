@@ -48,6 +48,10 @@ screen graveyard_section2():
         focus_mask True
         action Jump ("placeholder_grave_3")
 
+    imagebutton auto "valac_sec2_%s":
+        focus_mask Truea
+        action Jump ("valac_sec2")
+
 
 screen graveyard_section3():
     tag gravmenu
@@ -124,4 +128,4 @@ screen graveyard_section4():
 
     imagebutton auto "valac_sec4_%s":
         focus_mask True
-        action Jump ("ph36")
+        action Jump ("valac_sec4")
