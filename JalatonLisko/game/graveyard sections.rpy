@@ -1,6 +1,7 @@
 ####This is for all the point and click sections###
 ###################################################
 
+####Valac's optional dialogue####
 label valac_convo:
     if valac_convo == 1:
         r "..."
@@ -66,9 +67,11 @@ label valac_convo:
         v "Does this look like some silly plastic pole? Those are pointless. I can walk perfectly fine even without it."
         "..."
         "I've seen him tapping it at the edges of the walkways and stairs."
+        $ p_rep += 1
         $ valac_convo += 1
     elif valac_convo == 5:
         "Lol fifth convo"
+        $p_rep += 1
         $ valac_convo += 1
     elif valac_convo <= 6:
         r "Tää on keskustelu kuus."
@@ -118,7 +121,7 @@ label graveyard_1:
     #Niin pitää tehdä joku player location funktio. Mut honestly whos gonna check might as well write individual labels
     jump graveyard_1
 
-    label TapaniKaarina_grave:
+    label TapaniKaarina_grave_ph:
     "Not yet."
     "I need to find the rest of them first."
     jump graveyard_1
@@ -392,7 +395,7 @@ label graveyard_3:
 
             menu:
                 "I don't think we understand her.":
-                    # p_emp += 1
+                    $ p_emp += 1
                     r "I mean, yeah. That's a terrible thing to do, to her husband."
                     r "But... I don't know. There was a war going on. She didn't know if he was coming back, did she?"
                     v "So that makes it okay to—?"
@@ -534,128 +537,171 @@ label graveyard_3:
 
 
 label graveyard_4:
-    #if Signe_I_found and Aarne_found and Lennart_found == True:
-        #Initiate endgame branching
-    #else:
-        #pass
-    
+    if Signe_I_found and Aarne_found and Lennart_found == True:
+        "..."
+        v "I think..."
+        v "It seems... that you really are the last one alive."
+        r "Wow. That's ... huh."
+        r "What a weird thought."
+        r "Wait, what about Aarne and Lennart's parents."
+        v "We've found them all."
+        r "But—"
+        v "What do you not understand about \"We've found them all\"?"
+        r "..."
+        r "So what about mom and dad?"
+        if p_rep >= 4 and p_emp >=4: #Tos on ny vaa jotkut numerot, viilataan kuntoon myöhemmin
+            v "In a moment."
+            r "...?"
+            "I blink. The look on Valac's face is so {i}weird."
+            "It's like he's... sheepish? Awkward?"
+            v "When I came to your door today... You said you lived with your aunt."
+            r "Yeah?"
+            v "{i}Lived.{/i} That house was huge. And silent."
+            r "..."
+            v "... She wouldn't happen to be here, would she?"
+            r "She is."
+            r "... Do you... want to go see her?"
+            v "If it's not too much for you. Why not."
+            "That's new..."
+            "..."
+            r "... Sigh."
+            "... To Anni Heikkilä, then."
+            jump graveyard_5
+        else:
+            v "Yes... Yes, the time has come, hasn't it?"
+            v "..."
+            v "Let's go."
+            jump TapaniKaarina_grave
+    else:
+        pass
     scene section4
     "There are some more placeholders to click."
     "This is a graveyard 4"
     call screen graveyard_section4
 
     label Aarne_grave:
-        r "Aarne Vennamo..."
-        r "I think this must be Signe's father."
-        v "... Yes, he's one of ours."
-        "Valac looks deep in thought..."
-        r "looking at the dates, I think this might be one of the last graves we can feasibly still find."
-        r "I think the really old ones are removed aren't they? If no one comes to remember them."
-        v "..."
-        v "And no one born that long ago would still live, most likely."
-        v "..."
-        r "... What? What is it?"
-        v "You best be prepared. His story is a long one."
-        v "... Aarne Valentin."
-        v "Born 20th of February 1884. Younger brother of Lennart Valdemar."
-        v "..."
-        v "Aarne and his brother were raised by their mother, and neither brother remembered much of their father."
-        v "Despite his best attempts to reconnect, he failed to find him."
-        v "His mother, on the other hand, was a constant pressure on his life."
-        v "She'd devoted most of her waking moments in seances, trying to perfect her art of spiritism. Even as her reputation and relationships began to decline."
-        v "Her lack of love and attention, her separating him from his father, her incessant, delusional ramblings..."
-        v "When he came of age, Aarne had her committed to an asylum."
-        v "This sparked animosity between him and his brother. To further distance hismelf from his family, he changed his last name. To Vennamo."
-        v "Despite his off-putting appearance, Aarne was a succesful author."
-        v "Unfortunately for him, his talents shone the brightest when he was suffering."
-        v "When the civil war broke out, Aarne fully lost contact with his once close brother. Separated by politics and ideology, Lennart joined the reds, while Aarne joined the whites."
-        v "They never faced each other during the bloody affair, but Aarne always feared the day he might have to shoot his own brother."
-        v "But the war ended, the white side claiming victory. The bloody aftermath continued beyond warfare."
-        v "After realising what conditions his brother was being subjected to, Aarne rushed to get his brother out from the prison camp."
-        v "He succeeded, and with his newly engaged wife Aune, tried to nurse Lennart back to health."
-        v "An olive branch for years of animosity."
-        v "Lennart died only months after."
-        v "And fate would not let Aarne escape."
-        v "His beloved Aune, and tiny infant daughter Signe Impi, both succumbed to the Spanish Flu only weeks apart. Aarne was spared."
-        v "He remarried. With one Tyyne Maria. They had twins, Signe Amanda and Toivo Armas."
-        v "The wards proved to be a fruitful time for Aarne's career."
-        v "Due to his age, he narrowly avoided being drafter into the wards of the 20th century. Fate wasn't as kind ot his son, Toivo, who persihed on the frontlines."
-        v "None, not his wife, his daughter, or any of his artist friends, were wiser to the gaping hole where his heart was supposed to be."
-        v "During a large family gathering, to remember and forget the past when necessary, he stepped into the middle of the dining room."
-        v "And announced that he would be shooting himself, then and there."
-        v "The family did not believe him."
-        v "His wife rolled her eyes. Simo and Signe bid him to stop fooling around and to sit back down. He was scaring Riitta."
-        v "But he'd known where Simo, Signe's husband, had hid his gun after the war."
-        v "..."
-        v "Aarne lived a long, miserable life. He died on the 2nd of February, 1958."
-        "..."
-        r "That's... awful."
-        v "..."
-        v "One of the most selfish things a person can do, really."
-        r "What? Killing themselves?"
-        v "Yes."
-        v "A father, a husband and a grandfather — To break the entire family, just to... what? Make a point?"
-        v "He ruined their lives. Sent them all to an early grave."
-
-        menu:
-            "Yes, it was selfish.":
-                r "Yeah... You're right."
-                r "They all died so young. Even if he didn't mean to, he took their futures with him."
-                r "... Why would he do something like that?"
-                r "I mean, he was wealthy, succesful, had a family even after all he'd been through. Didn't even serve in the wards."
-                # Valac shit eating grin because he thinkgs this is funny
-                v "Well. We can never truly know what's going on inside other peoples' heads, can we?"
-            
-            "No, it wasn't selfish.":
-                r "... More sad than selfish, I think."
-                v "Oh?"
-                r "I... I mean I can't know, but I think he was desperate for someone to understand him. No one did, so he took things into his own hands."
-                r "He was probably tried, and maybe no one realised how tired he was."
-                r "Maybe he thought he didn't deserve to exist. Survivor guilt and all."
-                r "And... I mean... It's not like I know that much about it, but..."
-                r "Maybe he thought he was doing them a kindness. They wouldn't have to suffer him anymore. They'd be free. He wouldn't burden them anymore, with his grief that never healed."
-                v "It wasn't selfish of him to pull them down with him?"
-                r "I know it's awful. And not kind, at all. Least of all to himself."
-                v "..."
-                v "... An interesting point of view."
-
-        r "..."
-        r "... wait. He changed his surname?"
-        v "Some did."
-        r "And his brother — Lennart? — didn't?"
-        v "If you're keen to find him, despite knowing what happened to him, go ahead."
-        $ Aarne_found = True
+        if Aarne_found == False:
+            r "Aarne Vennamo..."
+            r "I think this must be Signe's father."
+            v "... Yes, he's one of ours."
+            "Valac looks deep in thought..."
+            r "looking at the dates, I think this might be one of the last graves we can feasibly still find."
+            r "I think the really old ones are removed aren't they? If no one comes to remember them."
+            v "..."
+            v "And no one born that long ago would still live, most likely."
+            v "..."
+            r "... What? What is it?"
+            v "You best be prepared. His story is a long one."
+            v "... Aarne Valentin."
+            v "Born 20th of February 1884. Younger brother of Lennart Valdemar."
+            v "..."
+            v "Aarne and his brother were raised by their mother, and neither brother remembered much of their father."
+            v "Despite his best attempts to reconnect, he failed to find him."
+            v "His mother, on the other hand, was a constant pressure on his life."
+            v "She'd devoted most of her waking moments in seances, trying to perfect her art of spiritism. Even as her reputation and relationships began to decline."
+            v "Her lack of love and attention, her separating him from his father, her incessant, delusional ramblings..."
+            v "When he came of age, Aarne had her committed to an asylum."
+            v "This sparked animosity between him and his brother. To further distance hismelf from his family, he changed his last name. To Vennamo."
+            v "Despite his off-putting appearance, Aarne was a succesful author."
+            v "Unfortunately for him, his talents shone the brightest when he was suffering."
+            v "When the civil war broke out, Aarne fully lost contact with his once close brother. Separated by politics and ideology, Lennart joined the reds, while Aarne joined the whites."
+            v "They never faced each other during the bloody affair, but Aarne always feared the day he might have to shoot his own brother."
+            v "But the war ended, the white side claiming victory. The bloody aftermath continued beyond warfare."
+            v "After realising what conditions his brother was being subjected to, Aarne rushed to get his brother out from the prison camp."
+            v "He succeeded, and with his newly engaged wife Aune, tried to nurse Lennart back to health."
+            v "An olive branch for years of animosity."
+            v "Lennart died only months after."
+            v "And fate would not let Aarne escape."
+            v "His beloved Aune, and tiny infant daughter Signe Impi, both succumbed to the Spanish Flu only weeks apart. Aarne was spared."
+            v "He remarried. With one Tyyne Maria. They had twins, Signe Amanda and Toivo Armas."
+            v "The wards proved to be a fruitful time for Aarne's career."
+            v "Due to his age, he narrowly avoided being drafter into the wards of the 20th century. Fate wasn't as kind ot his son, Toivo, who persihed on the frontlines."
+            v "None, not his wife, his daughter, or any of his artist friends, were wiser to the gaping hole where his heart was supposed to be."
+            v "During a large family gathering, to remember and forget the past when necessary, he stepped into the middle of the dining room."
+            v "And announced that he would be shooting himself, then and there."
+            v "The family did not believe him."
+            v "His wife rolled her eyes. Simo and Signe bid him to stop fooling around and to sit back down. He was scaring Riitta."
+            v "But he'd known where Simo, Signe's husband, had hid his gun after the war."
+            v "..."
+            v "Aarne lived a long, miserable life. He died on the 2nd of February, 1958."
+            "..."
+            r "That's... awful."
+            v "..."
+            v "One of the most selfish things a person can do, really."
+            r "What? Killing themselves?"
+            v "Yes."
+            v "A father, a husband and a grandfather — To break the entire family, just to... what? Make a point?"
+            v "He ruined their lives. Sent them all to an early grave."
+    
+            menu:
+                "Yes, it was selfish.":
+                    $ p_emp -= 2
+                    $ p_rep -= 2
+                    r "Yeah... You're right."
+                    r "They all died so young. Even if he didn't mean to, he took their futures with him."
+                    r "... Why would he do something like that?"
+                    r "I mean, he was wealthy, succesful, had a family even after all he'd been through. Didn't even serve in the wards."
+                    # Valac shit eating grin because he thinkgs this is funny
+                    v "Well. We can never truly know what's going on inside other peoples' heads, can we?"
+                
+                "No, it wasn't selfish.":
+                    $ p_emp += 2
+                    $ p_rep += 2
+                    r "... More sad than selfish, I think."
+                    v "Oh?"
+                    r "I... I mean I can't know, but I think he was desperate for someone to understand him. No one did, so he took things into his own hands."
+                    r "He was probably tried, and maybe no one realised how tired he was."
+                    r "Maybe he thought he didn't deserve to exist. Survivor guilt and all."
+                    r "And... I mean... It's not like I know that much about it, but..."
+                    r "Maybe he thought he was doing them a kindness. They wouldn't have to suffer him anymore. They'd be free. He wouldn't burden them anymore, with his grief that never healed."
+                    v "It wasn't selfish of him to pull them down with him?"
+                    r "I know it's awful. And not kind, at all. Least of all to himself."
+                    v "..."
+                    v "... An interesting point of view."
+    
+            r "..."
+            r "... wait. He changed his surname?"
+            v "Some did. Translating one's Swedish surname into Finnish wasn't too uncommon. If not needless."
+            r "And his brother — Lennart? — didn't?"
+            v "If you're keen to find him, despite knowing what happened to him, go ahead."
+            $ Aarne_found = True
+        else:
+            v "What, you want to hear his story again. Alright then —"
+            r "No, I'm fine, thanks."
         jump graveyard_4
 
     label Signe_I_grave:
-        r "Aune neé Matintytär... and Signe Impi Vennamo. Just a few months old."
-        v "Why are we here?"
+        if Signe_I_found == False:
+            r "Aune neé Matintytär... and Signe Impi Vennamo. Just a few months old."
+            v "Why are we here?"
 
-        if Aarne_found == True:
-            v "We already know what happened. There's zero reason to listen to the same bleak tale again."
-            menu:
-                "Yeah, maybe you're right.":
-                    r "I don't know if I want to hear that in more detail."
-                    r "..."
-                    v "... Let's move on."
-                    $ Signe_I_found = True
-                    jump graveyard_4
-                "No, I want to hear it.":
-                    r "But what if there is? This Signe is also blood-related to you. To me."
-                    r "I think her story is worth telling on its own merits. No matter how short it is."
-                    r "As is Aune's."
-                    v "This Aune is of no use to me."
-                    v "... But fine. I'll dredge the memory of Signe from the stone."
-                    v "It's a short one."
-                    jump Signe_I_story
+            if Aarne_found == True:
+                v "We already know what happened. There's zero reason to listen to the same bleak tale again."
+                menu:
+                    "Maybe you're right, I don't.":
+                        r "I don't know if I want know any more details."
+                        r "... We've found her anyways."
+                        v "... Let's move on."
+                        $ Signe_I_found = True
+                        jump graveyard_4
+                    "I want to hear it.":
+                        r "But what if there is? This Signe is also blood-related to you. To me."
+                        r "I think her story is worth telling on its own merits. No matter how short it is."
+                        r "As is Aune's."
+                        v "This Aune is of no use to me."
+                        v "... But fine. I'll dredge the memory of Signe from the stone."
+                        v "It's a short one."
+                        jump Signe_I_story
+            else:
+                r "Well, she's a Vennamo. Probably related to Toivo and Signe."
+                r "... Another Signe?"
+                v "Alright, fine."
+                v "It's a short one."
+                jump Signe_I_story
         else:
-            r "Well, she's a Vennamo. Probably related to Toivo and Signe."
-            r "... Another Signe?"
-            v "Alright, fine."
-            v "It's a short one."
-            jump Signe_I_story
-    
-    
+            r "... Sweet dreams."
+            jump graveyard_4
+
     label Signe_I_story:
         v "Signe Impi Vennamo, born 24th of June 1918. Daughter of Aune Matintytär and Aarne Vennamo."
         v "Her birth was a spark of light in her father's dim life."
@@ -686,6 +732,7 @@ label graveyard_4:
 
         menu:
             "That's... kind of sweet?":
+                $ p_emp += 1
                 r "I... don't really know if I'd do that."
                 r "But I guess times were different."
                 v "Indeed they were."
@@ -705,6 +752,7 @@ label graveyard_4:
                     pass
 
             "That's really weird.":
+                $ p_emp -= 1
                 r "That's weird. What, did they run out of names?"
                 v "Maybe it was a kindness. To give them a chance to live through their sibling."
                 r "Still, kind of macabre. Name a child after their dead sibling, like they're a replacement."
@@ -734,7 +782,7 @@ label graveyard_4:
         else:
             r "... Wait."
             r "Lennart... Fennander?"
-            r "Is this Aarne's brother?"
+            r "Isn't this Aarne's brother?"
             v "Seems to be."
             v "Well, I think we already know what happened to him."
             r "..."
@@ -774,7 +822,7 @@ label graveyard_4:
                     v "I thought you got yourself an upper secondary education. History and social studies weren't your fortes, were they?"
                     r "I—! Let's drop this."
                     r "I knew this was going to be like kicking an ant's nest."
-                    v "If so, hos incredibly foolish of you to bring it up."
+                    v "If so, how incredibly foolish of you to bring it up."
                     r "I didn't, it was you who—!"
                     r "Argh, forget it."
                 "That's easy to say after the fact.":
@@ -791,9 +839,10 @@ label graveyard_4:
                     v "People make foolish, idiotic choices all the time. Typically because they follow their hearts instead of their brains."
                     r "But that's pretty human, isn't it?"
                     r "Can't really fault the guy if he was doing what he thought was right, and got to suffer for it."
-                    v "He most likely ended a life or two during that war."
+                    v "There have been a great many horrors done by some valiant hearts. He most likely ended a life or two during that war."
                     r "..."
-                    r "... Feels weird to shame someone from a hundred years ago because history happened to them."
+                    r "... I know. But it's not like we can change what happened. We just have to come to terms with it."
+                    r "Feels weird to shame someone from a hundred years ago because history happened to them."
                     v "Hmm. A fun way to put it."
             $ Lennart_found = True
         jump graveyard_4

@@ -5,6 +5,8 @@
 
 define e = Character("Eileen")
 define r = Character("Rene")
+define a = Character("Anni")
+define t = Character("Tapani")
 
 ##Tracking values
 

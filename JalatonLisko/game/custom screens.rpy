@@ -25,7 +25,7 @@ screen graveyard_section1():
 
     imagebutton auto "hautayksi_%s":
         focus_mask True
-        action Jump ("TapaniKaarina_grave")
+        action Jump ("TapaniKaarina_grave_ph")
     
     imagebutton auto "valac_sec1_%s":
         focus_mask True
@@ -129,3 +129,4 @@ screen graveyard_section4():
     imagebutton auto "valac_sec4_%s":
         focus_mask True
         action [SetVariable("player_pos", 4), Jump ("valac_convo")]
+
