@@ -41,7 +41,7 @@ label splashscreen:
     scene black
     with Pause(1)
 
-    play sound "sus.mp3"
+    play sound "splash.ogg"
 
     show splash at truecenter with dissolve
     with Pause(2)
