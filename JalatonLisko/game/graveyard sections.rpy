@@ -1,6 +1,3 @@
-####This is for all the point and click sections###
-###################################################
-
 ####Valac's optional dialogue####
 label valac_convo:
     if valac_convo == 1:
@@ -70,7 +67,24 @@ label valac_convo:
         $ p_rep += 1
         $ valac_convo += 1
     elif valac_convo == 5:
-        "Lol fifth convo"
+        #Magic convo
+        v "So. Not well versed with magics, are you?"
+        r "... A little."
+        v "Oh? How little?"
+        r "I tried making a sigil. Once."
+        r "Didn't work."
+        v "Of course it didn't work if you stopped there."
+        v "You need to have the {i}exact{/i} right mindset, the intentions."
+        v "And the shapes need to be {i}exactly{/i} right, with pinpoint accuracy. Not a millimeter off."
+        v "And if you have everything right, everything exactly the way they must be -"
+        v "You might be able to make a glass of water freeze. Or singe a bit of wood."
+        v "No, boy, set your sights a little higher than some lowly sigils or rituals."
+        v "{i}We{/i} don't need them, and no distant offspring of mine should either."
+        r "..."
+        r "Yeah, sure. Dream on."
+        r "I'll eat my shoes if I ever manage magic without a sigil."
+        v "Then hope you have some edible shoes."
+        v "I won't suffer the embarrasement."
         $p_rep += 1
         $ valac_convo += 1
     elif valac_convo <= 6:
@@ -105,6 +119,7 @@ label valac_convo:
         
 label graveyard_1:
     if Maija_found == True:
+        pause 1.5
         r "I think that's all my relatives in this section."
         v "Onto the next one, then?"
         jump graveyard_2
@@ -225,6 +240,7 @@ label graveyard_1:
 
 label graveyard_2:
     if Riitta_found  == True:
+        pause 1.5
         r "Well that's it for this one."
         v "Let's move on. I'm getting cold just standing around here."
         jump graveyard_3
@@ -345,6 +361,7 @@ label graveyard_2:
     
 label graveyard_3:
     if Signe_found and Toivo_found == True:
+        pause 1.5
         r "I think that's all for section 3."
         jump graveyard_4
 
@@ -538,6 +555,7 @@ label graveyard_3:
 
 label graveyard_4:
     if Signe_I_found and Aarne_found and Lennart_found == True:
+        pause 1.5
         "..."
         v "I think..."
         v "It seems... that you really are the last one alive."

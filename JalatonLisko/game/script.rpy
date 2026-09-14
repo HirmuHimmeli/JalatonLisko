@@ -34,6 +34,24 @@ default valac_convo = 1
 default player_pos = 1
 # The game starts here.
 
+#Experimental splashscreen
+image splash = "splash.png"
+
+label splashscreen:
+    scene black
+    with Pause(1)
+
+    play sound "sus.mp3"
+
+    show splash at truecenter with dissolve
+    with Pause(2)
+
+    scene black with dissolve
+    with Pause(1)
+
+    return
+
+
 label start:
     scene graveyard_gates
     show garmes happy
@@ -50,7 +68,8 @@ label start:
     #Small no-detail CG of Valac showing up on Rene's doorstep?
     "He showed up on my doorstep, unannounced. All four horns, weird eyes and white hair —"
     "I'd never met too many demons, but I knew he wasn't the average kind."
-    "Proclaimed that he'd been looking for me — For family. That he'd been asleep for so long, he didn't know where his children had gone. He was happy he'd found me."
+    "Proclaimed that he'd been looking for me — For family."
+    "That he'd been asleep for so long, he didn't know where his children had gone. He was happy he'd found me."
     "Demanded that I take him to the graveyard. Find out which of his — our relatives were alive, if any. Since I didn't know."
     "I'd never met them."
     "..."
@@ -59,7 +78,7 @@ label start:
     r "I'm going back home."
     v "What?! This isn't what we agreed on."
     r "You wanted to look for family graves, there's the graveyard. You don't need me there."
-    v "What, you don't want to bond with your long-lost great-great-great-grandfather? Come on now."
+    v "You don't want to bond with your long-lost great-great-great-grandfather? Come on now."
     v "...I knew where the graveyard was. But I can't find the graves on my own."
     r "What? Why?"
     v "My sight is not what it used to be." 
@@ -69,12 +88,12 @@ label start:
     "... This is so out of the blue, it's difficult to really think of reasons why I shouldn't."
     "And, I mean… If he really isn't lying, and we truly are related…"
     "..."
-    "...Fuck it."
+    "... Fuck it."
     r "Why not."
     r "... Not like I have anything better to do, anyway."
     "And on the other hand, perhaps it is best not to upset an archdemon. If he truly is one… Though with that many horns he must be, right?"
     "... Didn't think there were any around anymore."
-    v "Wonderful! You could have been a bit more enthusiastic about it, but I'll take it."
+    v "Wonderful! Could have been a bit more enthusiastic about it, but I'll take it."
     r "..."
     r "Wait, how are we supposed to find them? I don't even know who's buried here."
     v "They all are, that I do know."
@@ -182,16 +201,16 @@ label TapaniKaarina_grave_intro:
     v "And do correct me if I'm wrong,"
     "He steps closer. Before I can react, he brushes a brusque hand over my forehead."
     #CG closeup of Rene's forehead with the horns poking out
-    v "those tiny horns aren't common for non-demons, are they?"
-    v "There aren't too many reasons for you to be a freak of nature, being an heir to my bloodline one possibility among them."
-    v "My eyesight may be poor, so poor that I have to beg for your help. But my nose — why, it never lies. I know it is my blood coursing through your veins."
+    v "those aren't too common for non-demons, are they?"
+    v "There aren't too many reasons for you to be a freak of nature. But being an heir to my bloodline might explain somethings."
+    v "My eyesight may be poor, but my nose — why, it never lies. I know it is my blood coursing through your veins."
     "I stumble back."
-    r "But—! Alright, fine!"
+    r "Alright, alright! Fine!"
     r "But if you can smell your blood, whatever that means, then why are we here looking for your children?"
     r "Can't you go looking for them by smell, then?"
     v "Well, that's a lot of ground to cover!"
     v "And it will be easier for my weary heart if I know my search would be pointless. If they're already here."
-    v "And when you find our relatives' graves, I can tell you more about them. Your grandparents, great grandparents — people you were ripped away from."
+    v "In return for your help, when you find our relatives' graves I can tell you more about them. Your grandparents, great grandparents — people you were ripped away from."
     v "And your parents… You'd like to know why they weren't there to raise you, wouldn't you?"
     "!"
     r "You'd…? Yes, please!"
@@ -199,8 +218,8 @@ label TapaniKaarina_grave_intro:
     v "Patience, patience! I promise I'll tell you, after we find my other descendants. Then, we'll return here."
     v "It could be a fruitful bonding moment for us!"
     "I can't force a lie out of my mouth, to say that I'm not curious."
-    "I've lived with my aunt my entire life. I don't even remember my parents."
-    "And auntie didn't know about dad's side of the family. They never contacted me."
+    "I've lived with my aunt my entire life. I've only seen them in some old wedding photos auntie had saved."
+    "And she didn't know about dad's side of the family. They never contacted me."
     "So Valac could be right — they might all be here."
     r "But, wait. If you were — what, asleep? — for a couple hundred years or so, doesn't that mean you don't even know those people? How would you tell me anything about them?"
     v "Not that long, no. And you'll see."
@@ -210,8 +229,8 @@ label TapaniKaarina_grave_intro:
     v "Well, you can just search blindly, take in the scenery. Maybe find some other names you recognise."
     v "Or you can search by surnames. Likely your father shares his surname with his parents. And the next one with their parents, so on and so forth."
     r "But, don't people sometimes change their surnames?"
-    v "We can cross that bridge when we get to it."
-    v "And as I said, you might just get lucky. I'll know if my blood is buried under the stones you find."
+    v "My you're not the brightest one, are you? We can cross that bridge when we get to it."
+    v "And as I said, I'll know if my blood is buried under the stones you find."
     r "... But if that's the case, then —"
     v "What? I'm not checking every grave in the vain hope that I'll find the right ones, the names of whom I cannot even make out."
     v "If you expect an old, old man like myself to toil himself to death looking for his lost family, then your aunt raised you quite poorly."
