@@ -1,4 +1,5 @@
 label TapaniKaarina_grave:
+    scene tapanikaarina_grave
     "... Finally. We're back here."
     "... What a day."
     "It was fascinating to hear what happened to all the others — that there even were others. To meet them."
@@ -189,7 +190,7 @@ label TapaniKaarina_grave:
 
 
 label graveyard_5: #Tää voi myöhemmin olla oma p-a-c sektio mut nyt railroadataa
-    scene section1
+    scene section5
     jump Anni_grave
 
 label Anni_grave:
