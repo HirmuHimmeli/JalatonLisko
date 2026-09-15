@@ -19,13 +19,13 @@ screen graveyard_section1():
     add "section1"
     modal True
 
-    imagebutton auto "graveyard_1_grave1_%s":
+    image:button auto "graveyard_1_grave1_%s"
         focus_mask True
         action Jump ("Maija_Petri_grave")
 
     imagebutton auto "hautayksi_%s":
         focus_mask True
-        action Jump ("TapaniKaarina_grave_ph")
+        action Jump ("Riitta_grave")
     
     imagebutton auto "valac_sec1_%s":
         focus_mask True
@@ -38,7 +38,7 @@ screen graveyard_section2():
    
     imagebutton auto "graveyard_2_grave1_%s":
         focus_mask True
-        action Jump ("Riitta_grave")
+        action Jump ("Signe_grave")
 
     imagebutton auto "graveyard_2_grave2_%s":
         focus_mask True
@@ -61,7 +61,7 @@ screen graveyard_section3():
    
     imagebutton auto "graveyard_3_grave1_%s":
         focus_mask True
-        action Jump ("Signe_grave")
+        action Jump ("ph31")
 
     imagebutton auto "graveyard_3_grave2_%s":
         focus_mask True

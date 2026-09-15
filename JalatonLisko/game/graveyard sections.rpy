@@ -92,6 +92,7 @@ label valac_convo:
         v "Siisti juttu make."
         $ valac_convo += 1
     elif valac_convo <= 7:
+        #Elättikäärmeet
         "Ahyuk, tää on seittemäs keskustelu."
         $ valac_convo += 1
     else:
@@ -118,12 +119,20 @@ label valac_convo:
 
         
 label graveyard_1:
-    if Maija_found == True:
+    if Maija_found and Riitta_found == True:
         pause 1.5
         r "I think that's all my relatives in this section."
         v "Onto the next one, then?"
-        jump graveyard_2
-        
+        r "Wait, which one?"
+        v "What do you mean \"which one\"?"
+        r "Well there's the war graves, over there."
+        v "Oh? Well, there could be some familiar names there."
+        v "You may choose. The war graves, or the next normal section?"
+        menu:
+            "War graves":
+                jump wargraves_first
+            "Normal section":
+                jump section2_first
     else:
         pass    
     scene section1
@@ -232,25 +241,6 @@ label graveyard_1:
             r "Found her already."
         jump graveyard_1
 
-   
-
-        
-
-
-
-label graveyard_2:
-    if Riitta_found  == True:
-        pause 1.5
-        r "Well that's it for this one."
-        v "Let's move on. I'm getting cold just standing around here."
-        jump graveyard_3
-    else:
-        pass
-
-    scene section2
-    "This is a graveyard 2"
-    "There are some placeholders to click."
-    call screen graveyard_section2
 
     label Riitta_grave:
         if Riitta_found == False:
@@ -345,34 +335,38 @@ label graveyard_2:
             r "Already found her."
             v "Oh, you want to hear the tale of her tragic death again?"
             r "No thanks."
-        jump graveyard_2
+        jump graveyard_1
+   
 
-    label placeholder_grave_2:
-        "This is a placeholder."
-        jump graveyard_2
+label section2_first:
+    scene section2
+    "We can check out the war graves later."
+    jump graveyard_2
 
-    label placeholder_grave_3:
-        "This is a placeholder."
-        jump graveyard_2
-    
+label section2_later:
+    scene section2
+    "Let's see if Toivo's sister is here."
+    jump graveyard_2
 
-
-
-    
-label graveyard_3:
-    if Signe_found and Toivo_found == True:
+label graveyard_2:
+    if Signe_found  == True:
         pause 1.5
-        r "I think that's all for section 3."
-        jump graveyard_4
-
+        r "Well that's it for this one."
+        if Toivo_found == False:
+            r "... Could her brother have died during the war?"
+            r "He just kind of disappeared from her story after that."
+            v "Might have."
+            r "Well, let's go and check them out."
+            jump wargraves_later
+        else:
+            v "Let's move on. I'm getting cold just standing around here."
+            r "Yeah. I guess that's it for the twins."
+            jump graveyard_4
     else:
         pass
-    
-    scene section3
-    "This is section 3."
-    "There are some more placeholders to click."
-    call screen graveyard_section3
-   
+
+    call screen graveyard_section2
+
     label Signe_grave:
         if Signe_found == False:
 
@@ -469,7 +463,53 @@ label graveyard_3:
       
         else:
             r "Found her already."
-        jump graveyard_3
+        jump graveyard_2
+
+    label placeholder_grave_2:
+        "This is a placeholder."
+        jump graveyard_2
+
+    label placeholder_grave_3:
+        "This is a placeholder."
+        jump graveyard_2
+    
+
+label wargraves_later:
+    scene section3
+    "Let's see if Signe's brother is here."
+    jump graveyard_3
+
+label wargraves_first:
+    scene section3
+    r "Wow... that's a lot of graves."
+    v "Sounds like you have a lot to do then. Get to it."
+    jump graveyard_3
+
+    
+label graveyard_3:
+    if Toivo_found == True:
+        pause 1.5
+        r "I think that's all for section 3."
+
+        if Signe_found == False:
+            r "So, he had a twin sister? Could she be somewhere here?"
+            v "Might be."
+            v "You should go look."
+            jump section2_later
+            
+        else:
+            v "Let's move on. I'm getting cold just standing around here."
+            r "Yeah. I guess that's it for the twins."
+            jump graveyard_4
+    else:
+        pass
+    
+    scene section3
+    "This is section 3."
+    "There are some more placeholders to click."
+    call screen graveyard_section3
+   
+
 
     label Toivo_grave:
         if Toivo_found == False:
@@ -503,7 +543,7 @@ label graveyard_3:
             v "Hmphm."
             r "...Hm? What's so funny?"
             v "Oh, it's nothing."
-            v "... This family of mine seems to have a bad tendency to die in embarrasingly young."
+            v "... This family of mine seems to have a bad tendency to die embarrasingly young."
             r "That's—"
 
             #Onko pointless menu og scriptissä? Keksitään jotain mielenkiintoisempaa sanottavaa
@@ -520,6 +560,10 @@ label graveyard_3:
             "Found him already. I wonder where his twin is."
         jump graveyard_3
 
+    label ph31:
+        "This is a placeholder."
+        jump graveyard_3
+        
     label ph32:
         "This is a placeholder."
         jump graveyard_3
