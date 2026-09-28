@@ -88,11 +88,28 @@ label valac_convo:
         $p_rep += 1
         $ valac_convo += 1
     elif valac_convo <= 6:
-        r "Tää on keskustelu kuus."
-        v "Siisti juttu make."
+        #Elättikäärmeet
+        r "So, uhh..."
+        r "How was it? Being a snake. Were you a snake a lot?"
+        v "Oh, depended on the century."
+        r "Really?"
+        v "Yes, really. Of course. Nowadays I'd get my head cut off with a shovel if I slithered my way too close to a garden."
+        v "... And before that too, I suppose. But some people really liked snakes."
+        v "Some even kept them as house animals, protectors of livestock."
+        r "Really? Was that a folk-belief of some kind?"
+        v "Not unique to this country, but yes."
+        r "Were you ever kept as a house snake?"
+        v "Of course not, I'm not some status-object, I'd never debase myself like that."
+        v "... But some centuries ago I lived under the stove of this one farmhouse."
+        v "I always got the first sips of milk from the cow, first grains of corn from the harvest."
+        v "A pretty nice deal. And in turn I did make sure that no harm came to the cows nor the house."
+        r "I thought you wouldn't \"debase\" yourself like that."
+        v "That was different. I wasn't a pet, I was a protector."
+        v "And the old lady treated me as such."
+        v "And made sure no ungrateful visitor tried to chop my head off with a shovel."
         $ valac_convo += 1
     elif valac_convo <= 7:
-        #Elättikäärmeet
+
         "Ahyuk, tää on seittemäs keskustelu."
         $ valac_convo += 1
     else:
@@ -125,9 +142,9 @@ label graveyard_1:
         v "Onto the next one, then?"
         r "Wait, which one?"
         v "What do you mean \"which one\"?"
-        r "Well there's the war graves, over there."
+        r "Well there's the war graves, over there. And then on the other side are some normal graves."
         v "Oh? Well, there could be some familiar names there."
-        v "You may choose. The war graves, or the next normal section?"
+        v "You may choose."
         menu:
             "War graves":
                 jump wargraves_first
@@ -183,22 +200,27 @@ label graveyard_1:
                 pass
 
             v "Maija Anneli Ilvessalo, neé Wuorenheimo. Born 10th of October 1942, died on the 14th of March 1971."
-            v "Her life was unremarkable in many ways, as was she. Despite her odd eyes and the uncanny bumps on her forehead, she lived as she was expected to."
+            v "Her life was unremarkable, as was she. She lived as she was expected to."
             v "Her parents were loving, as much as they were required to be."
-            v "But her small, happy life was not meant to be."
-            v "On one fateful day, just as she was beginning to spread her wings and become her own person, discovering who she was,"
+            v "She had some friends, the few who could see beyond the odd eyes and burgeoning bumps on her forehead."
+            v "But on one fateful day,"
             v "she saw her beloved grandfather shoot himself. In front of the whole family."
             v "And the status quo began to quake."
+            v "She'd lost who she thought she was. Who she wanted to be."
             v "She began pushing. Against others, against society, against herself."
             v "Alcohol soothed and fanned the flames. It became her most long-lasting companion."
-            v "Her nights spent in dark parks, alleyways and strangers' homes muffled the sound of her thoughts."
-            v "But with time and the incessant, unwanted but unwavering aid of her sister, she began to heal."
-            v "She found hope somewhere else other than at the bottom of a bottle. Found a lover and husband, had a child. Tiny, beloved Tapani."
+            v "But with the incessant, unwanted and unwavering aid of her sister, she began to heal."
+            v "Hope wasn't found at the bottom of a bottle. It was elsewhere."
+            v "In a newly-found lover and husband. In a child."
+            v "Tiny, beloved Tapani."
             v "Life was on rails once more."
-            v "But then her mother died. And on her deathbed, told her the truth: her father was not her real father. Her sister and her were only half-siblings."
-            v "And in a horrible twist of fate, before she could confide in her beloved Riitta about this, she died as well."
-            v "And the status quo became irreparable."
-            v "Left to mourn two loved ones but months apart, she was sent into a spiral, which swiftly and unfortunately killed her."
+            v "Then her mother died."
+            v "On her deathbed, she told Maija a secret:"
+            v "her father was not her real father. Riitta and her were only half-siblings."
+            v "Before she could confide in her sister about this, she died as well."
+            v "The status quo became irreparable."
+            v "The nights spent in dark parks and alleyways became longer and longer."
+            v "Strangers' homes became more familiar than her own."
             v "Her oldest friend became her undoing."
             v "On an unexpectedly cold winter eve, Maija died at the bottom of a snowy ditch, unconscious, with a bottle still clutched in one frost-bitten hand."
             #CG END + small pause in dialogue

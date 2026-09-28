@@ -19,7 +19,7 @@ screen graveyard_section1():
     add "section1"
     modal True
 
-    image:button auto "graveyard_1_grave1_%s"
+    imagebutton auto "graveyard_1_grave1_%s":
         focus_mask True
         action Jump ("Maija_Petri_grave")
 
