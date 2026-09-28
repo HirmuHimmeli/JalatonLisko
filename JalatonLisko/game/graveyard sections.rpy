@@ -1,9 +1,38 @@
 ####Valac's optional dialogue####
 label valac_convo:
+    if important_happened == True:
+        jump valac_convo_import
+    else:
+        jump valac_convo_normal
 
-    #if important_happened = Go to important dialogue, else = Nonimportant dialogue, --> Match valac_convo_import tai Match valac_convo (luku nousee ja match statement hakee sen luvun suoraan)
-    # Important tulee jos Important_happened = True jonka jälkeen se muttuu taas Falseks. Sitten edistyy ja tulee taas True.
-    if valac_convo == 1:
+label valac_convo_import:
+    if valac_convo_import == 1:
+        "YUks."
+    elif valac_convo_import == 2:
+        "Yaks."
+    elif valac_convo_import == 3:
+        "Yolkds."
+    else:
+        "HEHHeho."
+        
+if player_pos  ==1:
+        jump graveyard_1
+
+    elif player_pos ==2:
+        jump graveyard_2
+
+    elif player_pos ==3:
+        jump graveyard_3
+
+    elif player_pos ==4:
+        jump graveyard_4
+
+    else:
+        return    
+
+
+label valac_convo_normal:
+    if valac_convo_normal == 1:
         r "..."
         v "What? Spit it out."
         r "This is just…"
@@ -21,8 +50,8 @@ label valac_convo:
         r "Just… wasn't expecting you to be so…"
         v "Extraordinary? One-of-a-kind? Exotic? Unique?"
         r "Sure, let's go with that."
-        $ valac_convo +=1
-    elif valac_convo == 2:
+        $ valac_convo_normal +=1
+    elif valac_convo_normal == 2:
         r "You know, I've wondered. Why I look like this, and why no one else does."
         v "You never had any demons in your class? And some corvid demi-humans have darker sclera."
         r "But no one tends to have both. Or have them passed down, when neither mom nor dad were either."
@@ -38,16 +67,16 @@ label valac_convo:
         v "But… yes. Death typically isn't the end for us."
         r "That's… certainly a choice of words. What the hell does that mean?"
         v "All in due time, boy. I'd hate to lose all sense of mystery so quickly."
-        $ valac_convo +=1
-    elif valac_convo == 3:
+        $ valac_convo_normal +=1
+    elif valac_convo_normal == 3:
         r "So… You're an archdemon."
         v "I thought that was already established."
         r "Well, yeah. But it's still difficult to believe. It's like being told your ancestor was a dragon, or something."
         v "You'd know if your family had a dragon in it somewhere. They're traits are quite noticeable. Be glad yours are only so minor."
         r "Doesn't make them any less out of the ordinary."
         r "Wait, you mean there ARE people related to dragons?!"
-        $ valac_convo += 1
-    elif valac_convo == 4:
+        $ valac_convo_normal += 1
+    elif valac_convo_normal == 4:
         r "Hey, so, how can you turn into a snake?"
         v "I thought me being an archdemon was a needlessly well-established fact."
         r "So you can just do it? On command, by nature?"
@@ -68,8 +97,8 @@ label valac_convo:
         "..."
         "I've seen him tapping it at the edges of the walkways and stairs."
         $ p_rep += 1
-        $ valac_convo += 1
-    elif valac_convo == 5:
+        $ valac_convo_normal += 1
+    elif valac_convo_normal == 5:
         #Magic convo
         v "So. Not well versed with magics, are you?"
         r "... A little."
@@ -89,8 +118,8 @@ label valac_convo:
         v "Then hope you have some edible shoes."
         v "I won't suffer the embarrasement."
         $p_rep += 1
-        $ valac_convo += 1
-    elif valac_convo <= 6:
+        $ valac_convo_normal += 1
+    elif valac_convo_normal <= 6:
         #Elättikäärmeet
         r "So, uhh..."
         r "How was it? Being a snake. Were you a snake a lot?"
@@ -110,11 +139,11 @@ label valac_convo:
         v "That was different. I wasn't a pet, I was a protector."
         v "And the old lady treated me as such."
         v "And made sure no ungrateful visitor tried to chop my head off with a shovel."
-        $ valac_convo += 1
-    elif valac_convo <= 7:
+        $ valac_convo_normal += 1
+    elif valac_convo_normal <= 7:
 
         "Ahyuk, tää on seittemäs keskustelu."
-        $ valac_convo += 1
+        $ valac_convo_normal += 1
     else:
         r "I can't think of anything to say to him."
 #Checks where player interacted with valac and puts them back where they were, hopefully
