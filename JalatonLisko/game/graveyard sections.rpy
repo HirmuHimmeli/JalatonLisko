@@ -1,5 +1,8 @@
 ####Valac's optional dialogue####
 label valac_convo:
+
+    #if important_happened = Go to important dialogue, else = Nonimportant dialogue, --> Match valac_convo_import tai Match valac_convo (luku nousee ja match statement hakee sen luvun suoraan)
+    # Important tulee jos Important_happened = True jonka jälkeen se muttuu taas Falseks. Sitten edistyy ja tulee taas True.
     if valac_convo == 1:
         r "..."
         v "What? Spit it out."
