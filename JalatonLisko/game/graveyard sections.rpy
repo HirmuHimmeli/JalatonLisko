@@ -6,16 +6,83 @@ label valac_convo:
         jump valac_convo_normal
 
 label valac_convo_import:
-    if valac_convo_import == 1:
-        "YUks."
-    elif valac_convo_import == 2:
-        "Yaks."
+    if Riitta_found and important_convo_Riitta:
+        #Riitan hauta
+        v "..."
+        v "If I may ask..."
+        r "What?"
+        v "You looked a little... perturbed back there."
+        r "It's nothing."
+        v "Well, drowning to death in a frozen-over lake is quite the horrible end."
+        r "It's fine."
+        r "..."
+        menu:
+            "Tell him about \ \ \ \ \ ":
+                r "Actually,"
+                r "{w}I—{w=1.0}{nw}"
+                v "No matter, I don't have the patience for this."
+                v "Let's go."
+                v "...?"
+                r "Oh, yeah."
+            "It's fine.":
+                r "It's fine."
+                v "No need to keep repeating that, I understood the first time."
+                v "No matter, I don't have the patience for this."
+                v "Let's go. Next time you talk, say something worthwhile."
+                r "..."
+                r "Yeah."
+                v "..."
+        $ important_happened = False
+        $ important_convo_Riitta = False
+
+    
+    elif Signe_found and important_convo_Signe:
+        #Signen hauta
+        r "... So I have relatives in Germany, then."
+        v "That's fairly possible."
+        r "Do you think I could find him? This nameless soldier."
+        v "Quite possible. Though it's unlikely that he's still alive."
+        v "Unless he was a demon, of course. But that wasn't the impression I got."
+        v "And if that were the case you'd look very different."
+        r "I would? How?"
+        v "Oh, that's what's gotten your attention? Not that your great-grandfather was a—"
+        menu:
+            "Not like that changes anything.":
+                #Good number go UP
+                r "I don't really see what that changes."
+                r "I'm still me, and I don't even know the guy."
+                v "The weight of a genocide and some war crimes don't weight heavy on you?"
+                r "No, they don't! I didn't even exist back then!"
+                r "I can't control who I'm related to. The past is past, and getting hung up on this won't help anyone."
+                r "And there's not much to work with, since I know nothing about the guy."
+                r "If I understood him better, I {i}could{/i} examine things more clearly."
+                r "But that doesn't change the fact that I'm not responsible for whatever things he or any of my relatives might have done."
+                v "Well now, that was quite the tirade."
+                r "You weren't listening at all, were you?"
+                v "I got the gist of it."
+            "How would I have known?!":
+                #Good number go DOWN
+                r "I didn't know that! I don't think dad knew, or that auntie knew!"
+                r "So how could I—!"
+                r "There's nothing I could have done!"
+                r "It's not my fault!"
+                v "Well now."
+                v "I must have hit a nerve." #Insert shit-eating grin
+                v "Sorry about that." #He's not sorry
+                r "..."
+                r "{size=-20}Fuck you."
+                v "What was that?"
+                r "Nothing."
+        $ important_happened = False
+        $ important_convo_Signe = False
+
+    
     elif valac_convo_import == 3:
         "Yolkds."
     else:
         "HEHHeho."
         
-if player_pos  ==1:
+    if player_pos  ==1:
         jump graveyard_1
 
     elif player_pos ==2:
@@ -46,7 +113,7 @@ label valac_convo_normal:
         v "What's that supposed to mean?"
         r "When I opened the door I wasn't expecting scales and four horns and weird eyes —"
         v "Don't insult me."
-        r "I'm not, I —"
+        r "I'm not, I—"
         r "Just… wasn't expecting you to be so…"
         v "Extraordinary? One-of-a-kind? Exotic? Unique?"
         r "Sure, let's go with that."
@@ -64,12 +131,12 @@ label valac_convo_normal:
         v "I wonder how many of them are still around."
         r "I thought you guys were immortal?"
         v "Oh, and that's why most of us have seemingly vanished from the face of the Earth?"
-        v "But… yes. Death typically isn't the end for us."
-        r "That's… certainly a choice of words. What the hell does that mean?"
+        v "But... yes. Death typically isn't the end for us."
+        r "That's... certainly a choice of words. What the hell does that mean?"
         v "All in due time, boy. I'd hate to lose all sense of mystery so quickly."
         $ valac_convo_normal +=1
     elif valac_convo_normal == 3:
-        r "So… You're an archdemon."
+        r "So... You're an archdemon."
         v "I thought that was already established."
         r "Well, yeah. But it's still difficult to believe. It's like being told your ancestor was a dragon, or something."
         v "You'd know if your family had a dragon in it somewhere. They're traits are quite noticeable. Be glad yours are only so minor."
@@ -115,34 +182,49 @@ label valac_convo_normal:
         r "..."
         r "Yeah, sure. Dream on."
         r "I'll eat my shoes if I ever manage magic without a sigil."
-        v "Then hope you have some edible shoes."
+        v "Then I hope you have some edible shoes."
         v "I won't suffer the embarrasement."
         $p_rep += 1
         $ valac_convo_normal += 1
     elif valac_convo_normal <= 6:
         #Elättikäärmeet
         r "So, uhh..."
-        r "How was it? Being a snake. Were you a snake a lot?"
-        v "Oh, depended on the century."
+        r "How is it? Being a snake."
+        v "Oh, depends on the century."
         r "Really?"
-        v "Yes, really. Of course. Nowadays I'd get my head cut off with a shovel if I slithered my way too close to a garden."
+        v "Yes, really. Of course. Some times were better than others."
+        v "Nowadays I'd get my head cut off with a shovel if I slithered my way too close to a garden."
         v "... And before that too, I suppose. But some people really liked snakes."
-        v "Some even kept them as house animals, protectors of livestock."
+        v "Some even kept them as house animals in the past. Protectors of livestock."
         r "Really? Was that a folk-belief of some kind?"
         v "Not unique to this country, but yes."
+        v "It worked quite nicely in my favour. People respected even those crawling on the ground back then."
         r "Were you ever kept as a house snake?"
-        v "Of course not, I'm not some status-object, I'd never debase myself like that."
-        v "... But some centuries ago I lived under the stove of this one farmhouse."
-        v "I always got the first sips of milk from the cow, first grains of corn from the harvest."
-        v "A pretty nice deal. And in turn I did make sure that no harm came to the cows nor the house."
+        v "Of course not, I'm not some status-object. I'd never debase myself like that."
+        v "... Though, I did live under the stove of this farmhouse some centuries ago."
+        v "I always got the first sips of milk from the cow, first grains of corn from the harvest. A nice, warm place to sleep..."
+        v "The old maid had no idea that I wasn't some ordinary snake. But I did make sure that neither her cows nor her house came to harm."
         r "I thought you wouldn't \"debase\" yourself like that."
         v "That was different. I wasn't a pet, I was a protector."
-        v "And the old lady treated me as such."
+        v "And the lady treated me as such."
         v "And made sure no ungrateful visitor tried to chop my head off with a shovel."
         $ valac_convo_normal += 1
     elif valac_convo_normal <= 7:
-
-        "Ahyuk, tää on seittemäs keskustelu."
+        r "This might be a dumb question..."
+        v "Oh dear."
+        r "I was just thinking, and realised... I don't really know the difference between archdemons and demons."
+        v "..."
+        "I stand there expecting admonishment, or something of the sort."
+        "Instead Valac let's out this extremely long, heavy, hissing sigh."
+        "My ears burn."
+        v "... Congratulations, boy."
+        v "You've succeded."
+        r "Oh, uh, in what?"
+        v "Making me be at a loss for words."
+        r "So will you, uh—"
+        v "Not now. Else I might do something I might regret."
+        "I hear him mutter something underneath his breath, but I don't understand the words at all."
+        "... Might need to drop this for now."
         $ valac_convo_normal += 1
     else:
         r "I can't think of anything to say to him."
@@ -330,21 +412,27 @@ label graveyard_1:
             else:
                 pass
 
-            v "Riitta Eeva Wuorenheimo, born on the 31st of July 1946, died on the 7th of March 1971."
-            v "The younger sister of Maija. Born to a happy couple after the wars of Europe were finally over."
-            v "Despite his experiences during the wars, her father was loving beyond measure."
+            v "Riitta Eeva Wuorenheimo, born on the 31st of July 1946. Died on the 7th of March 1971."
+            v "Born to a happy couple after the wars of Europe were finally over."
+            v "Despite his experiences during the war, her father was loving beyond measure."
             #Happy portrait of Riitta
-            v "The model girl, sweet and kind. Like a doll. Always kind, always quiet. Even when she was bullied for her odd eyes, even when her big sister pulled her hair."
+            v "The model girl, sweet and kind. Like a doll."
+            v "Always kind, always quiet. Even when she was bullied for her odd eyes, even when her big sister pulled her hair."
             #Close up of her eye showing Aarne's body
-            v "But her screams were the loudest when she saw her grandfather shoot himself, in front of her and the whole family."
-            v "She managed to repress those terrible moments, and while her elder sister spiralled, Riitta managed to claw herself back into civility. Despite never marrying, finding the company of men to be not to her liking, she applied herself elsewhere, whenever she could."
-            v "She was there to pull her sister out of the dark, back into the light."
+            v "But the day when her grandfather ended his life in front of her and her whole family, her screams were the loudest."
+            v "She was young enough to repress those terrible moments."
+            v "While her elder sister spiralled, Riitta managed to claw herself back into civility."
+            v "Despite never marrying, she applied herself elsewhere, whenever she could."
+            v "She was there to pull her sister out of the dark and back into the light."
             v "And she was there to see the birth of her nephew, Tapani."
-            v "After their mother died, her sister spiralled again. She was gone most days, and her husband had grown tired of searching for her time and time again."
-            v  "Riitta was there to replace her sister's presence in the life of young Tapani."
-            v "One such sunny March day, in lieu of her sister having neglected her duties, Riitta took Tapani on a stroll. They ventured onto the ice of a frozen lake, to look at animal trails in the snow."
-            v "It could have been the ice, thinner in that part than others, maybe the sun had shone just a bit too brightly, but the icy veneer of the lake broke underneath Riitta's feet."
-            v "The young boy was left scrambling by the edge of the shattered ice to get his aunt out of the freezing water, to no avail."
+            v "After their mother died, her sister got worse. She was gone most days."
+            v "Maija's husband had grown tired of searching for her time and time again."
+            v "So Riitta was there to mend the hole her sister's absence had left behind, to be there for little Tapani."
+            v "One sunny March day, in lieu of her sister having neglected her duties, Riitta took Tapani on a stroll."
+            v "They ventured onto the ice of a frozen lake, searching for animal trails in the fresh snow."
+            v "It might have been that the ice was thinner in that part, or maybe the sun had shone just a bit too brightly that day,"
+            v "but the icy veneer of the lake broke underneath Riitta's feet, plunging her into the freezing waters."
+            v "The young boy was left scrambling by the edge of the shattered ice to get his aunt out, to no avail. He was much too small."
             v "She couldn't stay afloat. And no one had heard their shouts for help."
             v "Riitta's frozen body was recovered from the icy waters hours later."
             #CGs over
@@ -361,11 +449,12 @@ label graveyard_1:
                     r "How could she have known?"
                     r "It sounded like she thought it was safe, if she took dad with her."
                     v "People tend to treat death as an unfortunate side effect, instead of an ever-looming threat."
-                    r "People also fall in the ice every year, sometimes you just can't know these things."
+                    r "People fall in the ice every year, sometimes you just can't know these things."
                     v "She might still be alive if she'd had just an inkling of basic survival skills."
                     #Valac omahyväinen smirk he thinks its funny
                     v "... Land of a thousand lakes, and a thousand people who never learned how to swim."
                     r "Maybe it wasn't her fault for not learning, if she was never taught."
+                    r "... And it doesn't mean that she deserved that."
 
 
                 "I thought people were smarter back then.":
@@ -385,6 +474,7 @@ label graveyard_1:
             "..."
             v "Well, shall we finally move on?"
             $ Riitta_found = True
+            $ important_happened = True
         else:
             r "Already found her."
             v "Oh, you want to hear the tale of her tragic death again?"
@@ -431,11 +521,13 @@ label graveyard_2:
 
             v "Signe Amanda Vennamo, later Wuorenheimo. Twin sister of the accomplished young photographer, Toivo Vennamo."
             v "Born on the 10th of February, 1921, died 2nd of October 1970."
-            v "the twins were raised sheltered and far away from their deluded but influental grandparents, instead spending their summers with their humble mother's family in the countryside."
-            v "Signe proved to be a character of some eccentric qualities. While her brother pursued photography, Signe took up the pen, and in her spare time wrote poetry to soothe her racing mind."
+            v "The twins were raised sheltered and far away from their deluded but influental grandparents,
+            instead spending their summers with their humble mother's family in the countryside."
+            v "Signe proved to be a character of some eccentric qualities."
+            v "While her brother pursued photography, Signe took up the pen and in her spare time wrote poetry to soothe her racing mind."
             v "She married one Simo Väinö Wuorenheimo in 1940, only months after the Winter War."
             v "Sadly, the peace was temporary. As Europe continued to languish in the tides of war, Simo was drafted as a new war began only a year later."
-            v "While her husband spent years driving a truck, delivering the bodies of fallen soldiers back home, Signe stayed with her cousins." 
+            v "While her husband spent years driving a truck, delivering the bodies of fallen soldiers back home, Signe stayed with her cousins."
             v "Despite the outlaw of dancing during wartime, she and her cousins would sneak off to secret dances that were held in barns and other unseen places."
             v "And it so happened that many Germans stationed in the same area would occasionally join in the revelry, sneaking off to acquaint themselves with the local women and exchange rare goods brought with them."
             v "During one such evening, she met a handsome young man."
@@ -446,10 +538,15 @@ label graveyard_2:
             v "The couple concealed Maija's true parentage from the rest of the family. She did have her mother's eyes, after all."
             v "After the war, Simo and Signe had a child together, Riitta Eeva."
             v "What little happiness had returned after the birth of their children, Simo's return from the war and returning normalcy, lasted only for a decade or so."
-            v "One fateful day, during a family reunion in their house, Signe's father stood up, and made an announcement. Not a single person believed him."
-            v "She could only watch as her father pulled out a gun, and shot himself in the head. In front of her and her children."
-            v "Her mind, spirit and wellbeing shattered. She was admitted to a hospital, and later a mental institution."
-            v "After twelve years of anguish, after finally telling Maija that Simo was not her father, she passed away, never knowing the name of the man she'd danced with that January night."
+            v "One fateful day, during a family reunion in their house, Signe's father stood up, and made an announcement."
+            v "She didn't believe him, and bid her father to sit back down. He'd had a long few days behind him, he must be a little tired."
+            v "She could only watch as her father pulled out a gun, and shot himself in the head."
+            v "In front of her and her children."
+            v "Her mind, spirit and wellbeing shattered."
+            v "She was admitted to a hospital, and later a mental institution."
+            v "The weight of everything settled on her soul, slowly crushing her."
+            v "Telling Majia the truth did not help."
+            v "After twelve years of anguish, she passed away, never knowing the name of the man she'd danced with that January night."
             "..."
             v "What a sordid story."
             r "An outlaw of dancing? Was that really a thing?"
@@ -466,16 +563,19 @@ label graveyard_2:
                     v "So that makes it okay to—?"
                     r "No, of course not. But—"
                     r "I, I don't know. It's difficult. Feels icky to judge someone's decisions from that long ago."
-                    r "I don't think it was right, but it feel sbad to say that it was 'wrong' either, you know?"
+                    r "I don't think it was right, but it feels bad to say that it was 'wrong' either, you know?"
                     v "Oh, trying to become an academic, are you?"
                     r "I'm just trying to give her a fighting chance."
                     r "And it's not like we know for a fact that Simo wasn't unfaithful. Not like that's even improbable."
-                    v "Depends on where he was stationed. He might have met an 'exotic' Karelian or two."
+                    v "Depends on where he was stationed. He might have met an \"exotic\" Karelian or two."
                     r "... Plenty of people around regardless."
                     v "My, how progressive of you. Were they also in an open relationship, hm?"
                     r "That's not what I'm saying and you know it."
-                    r "It wasn't right, but... I'm trying to think about what I would have done. If tomorrow wasn't a certainty anymore. And it doesn't feel that clear-cut anymore."
+                    r "It wasn't right, but... I'm trying to think about what I would have done."
+                    r "If tomorrow wasn't a certainty anymore. And it doesn't feel that clear-cut anymore."
                     r "And maybe, if she'd been a man instead, we wouldn't have the instinct to judge her so harhsly."
+                    v "Hm, I suppose."
+                    v "\"I want to live and dance amidst the whirl of death\"..."
 
                 "I don't understand how she could do that.":
                     r "I mean, yeah. That's a terrible thing to do to her husband."
@@ -483,7 +583,7 @@ label graveyard_2:
                     v "Lotta Svärd, yes."
                     v "With over two hundred thousnad volunteering women."
                     r "..."
-                    r "And she wasn't one of them?"
+                    r "I guess she wasn't one of them."
                     v "Even if she was, would that have stopped her? They're not mutually exclusive."
                     r "Well, I mean—"
                     v "Chances were she was ordered to help with the war effort somewhere else, in a factory or as a builder..."
@@ -513,6 +613,7 @@ label graveyard_2:
             v "..."
             "Unexpectedly, Valac lets out a mirthless chuckle."
             v "Let us continue, shall we?"
+            $ important_happened = True
             $ Signe_found = True
       
         else:

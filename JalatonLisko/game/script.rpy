@@ -29,11 +29,16 @@ default visited_ukko = False
 default gave_coin = False
 
 #Tracks Valac's optional dialogue and crosses out previous conversations because the number has grown
-default valac_convo = 1
+default important_happened = False
+default valac_convo_import = 1
+default valac_convo_normal = 1
 #Tracks player position with valac convos
 default player_pos = 1
 # The game starts here.
 
+#Conversations had True = Not had and False = Has been had
+default important_convo_Riitta = True 
+default important_convo_Signe = True
 #Experimental splashscreen
 image splash = "splash.png"
 
